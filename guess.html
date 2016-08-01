@@ -1,0 +1,85 @@
+<!-- alert("Игра в Угадайку! Один игрок.");
+  var answer = parseInt(Math.random() * 100);
+    for (var i = 5; i > 0; i)
+     {
+        var number = parseInt(prompt("Введите ваш вариант ответа. У вас есть " + i + " Попыток"));
+        if (number == answer) 
+        {
+        } 
+        else if (number < answer) 
+        {
+            alert("Слишком маленькое число");
+        }
+         else if (number > answer)
+        {
+            alert("Слишком большое число");
+        }
+    }
+ -->
+
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Site</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+    var i = 5;
+    var answer = parseInt(Math.random() * 100);
+        function GameTwo()
+        {
+            var h2 = document.getElementById("attemp"); 
+            var h = document.getElementById("otvet");
+            var number = document.getElementById("boxidtext").value;
+            i--;  
+            if(i == 0)
+            {
+                i = 5;
+                answer = parseInt(Math.random() * 100);
+                h2.innerHTML="Осталось попыток: " + i + ". Число сгенерировано!"; 
+            }
+            else 
+            {
+                h2.innerHTML="Осталось попыток: " + i;
+            }
+            if(number == answer)
+            {
+                   h.innerHTML="Ура.Вы угадали!";
+            }         
+            else if (number < answer) 
+            {
+                    h.innerHTML="Слишком маленькое число";
+            }
+            else if (number > answer)
+            {
+                    h.innerHTML="Слишком большое число";
+            }
+
+            
+        }
+    </script>
+</head>
+<body>
+    <div id = "header">
+        <a href="mysite.html">Главная</a>
+        <a href="puzzles.html">Загадки</a>
+        <a href="#">Угадайка</a>
+        <a href="media.html">Угадайка мультиплеер</a>
+    </div>
+    <div id = "content">
+        <h1>Личный сайт студента GeekBrains</h1>
+        <div id = "center">
+        <h1>Игра в угадайка</h1>
+           <div id = "box">
+            <p>Угадай число от 1 до 100</p>
+            <p id = "attemp">Осталось попыток: 5. Число сгенерировано!</p>
+            <input type="text" id="boxidtext">
+            <br> <br>
+            <a href="#" onclick="GameTwo();">Проверить</a>
+            <p id = "otvet"></p>
+            </div>
+        </div>
+    </div>
+    <div id = "end"><h1>© GeekBrains 2016</div></h1>
+</body>
+</html>

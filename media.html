@@ -1,0 +1,112 @@
+<!-- <meta charset="utf-8">
+<script>
+alert("Игра в Угадайку! Два игрока.");
+  var answer = parseInt(Math.random() * 100);
+  var one = parseInt(1);
+  var two = parseInt(2);
+  var game = one;
+    for (var i = 6; i > 0; i)
+     {
+        var number = parseInt(prompt("Осталось попыток: " + i + "\nИгрок №" + game + "\nВведите ваш вариант ответа."));
+        if (number == answer) 
+        {
+            alert("Игрок №" + game + ". Вы выиграли!");
+            break;
+        } 
+        else if (number < answer) 
+        {
+            alert("Слишком маленькое число");
+        }
+         else if (number > answer)
+        {
+            alert("Слишком большое число");
+        }
+        if(game == one) game = two;
+        else game = one; 
+    }
+    location.href = 'mysite.html';
+</script>
+ -->
+
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Site</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+    var i = 6;
+    var answer = parseInt(Math.random() * 100);
+    var pnumber = 1;
+        function GameTwo()
+        {
+            var h3 = document.getElementById("player"); 
+            var h2 = document.getElementById("attemp"); 
+            var h = document.getElementById("otvet");
+            var number = document.getElementById("boxidtext").value;
+            
+            if(pnumber == 1) 
+              {
+                h3.innerHTML = "Второй игрок";
+                pnumber = 2;
+              }
+            else 
+              {
+                h3.innerHTML = "Первый игрок";
+                pnumber = 1;
+              }
+
+            i--;  
+            
+            if(i == 0) 
+              {
+                i = 6;
+                answer = parseInt(Math.random() * 100);
+                h2.innerHTML="Осталось попыток: " + i + ". Число сгенерировано!"; 
+              }
+            else h2.innerHTML="Осталось попыток: " + i;
+
+            if(number == answer)
+            {
+                  if(pnumber == 1)
+                   h.innerHTML="Ура.Первый игрок угадал!";
+                 else h.innerHTML="Ура.Второй игрок угадал!";
+
+            }         
+            else if (number < answer) 
+            {
+                    h.innerHTML="Слишком маленькое число";
+            }
+            else if (number > answer)
+            {
+                    h.innerHTML="Слишком большое число";
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div id = "header">
+        <a href="mysite.html">Главная</a>
+        <a href="puzzles.html">Загадки</a>
+        <a href="guess.html">Угадайка</a>
+        <a href="#">Угадайка мультиплеер</a>
+    </div>
+    <div id = "content">
+        <h1>Личный сайт студента GeekBrains</h1>
+        <div id = "center">
+        <h1>Игра в угадайка. Два игрока</h1>
+           <div id = "box">
+            <p>Угадай число от 1 до 100</p>
+            <p id = "attemp">Осталось попыток: 6. Число сгенерировано!</p>
+            <p id = "player">Первый игрок!</p>
+            <input type="text" id="boxidtext">
+            <br> <br>
+            <a href="#" onclick="GameTwo();">Проверить</a>
+            <p id = "otvet"></p>
+            </div>
+        </div>
+    </div>
+    <div id = "end"><h1>© GeekBrains 2016</div></h1>
+</body>
+</html>
